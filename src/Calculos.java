@@ -135,14 +135,23 @@ public class Calculos {
 
     /** Resistencia equivalente en SERIE: suma de todas. Sin argumentos devuelve 0. */
     public static double resistenciaSerie(double... resistencias) {
-        // TODO
-        return 0;
+        
+        double suma = 0;
+        for (int i = 0; i < resistencias.length; i++) {
+            suma += resistencias[i];
+        }
+        return suma;
     }
 
     /** Resistencia equivalente en PARALELO: 1 / (1/R1 + 1/R2 + ...). Sin argumentos devuelve 0. */
     public static double resistenciaParalelo(double... resistencias) {
-        // TODO
-        return 0;
+        
+       if (resistencias.length == 0) return 0;
+        double sumInversa = 0;
+        for (int i = 0; i < resistencias.length; i++) {
+            sumInversa += 1.0 / resistencias[i];
+        }
+        return 1.0 / sumInversa;
     }
 
     /**
@@ -151,7 +160,10 @@ public class Calculos {
      * Caso base: n <= 0 devuelve 0.
      */
     public static double sumaRecursiva(double[] datos, int n) {
-        // TODO
-        return 0;
+        
+        if (n <= 0) {
+            return 0;
+        }
+        return datos[n - 1] + sumaRecursiva(datos, n - 1);
     }
 }
