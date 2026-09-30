@@ -112,20 +112,20 @@ public class Calculos {
 
     /** kwh * TARIFA_BASE */
     public static double calcularCosto(double kwh) {
-        // TODO
-        return 0;
+        
+        return kwh * TARIFA_BASE;
     }
 
     /** kwh * tarifa */
     public static double calcularCosto(double kwh, double tarifa) {
-        // TODO
-        return 0;
+        
+        return kwh * tarifa;
     }
 
     /** dias * kwhPorDia * tarifa */
     public static double calcularCosto(int dias, double kwhPorDia, double tarifa) {
-        // TODO
-        return 0;
+        
+        return dias * kwhPorDia * tarifa;
     }
 
     // ===============================================================
