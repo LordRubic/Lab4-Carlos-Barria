@@ -67,27 +67,44 @@ public class Calculos {
 
     /** Promedio de las lecturas. Si el arreglo esta vacio devuelve 0. */
     public static double promedio(double[] lecturas) {
-        // TODO
-        return 0;
+        
+        if (lecturas.length == 0) return 0;
+        double suma = 0;
+        for (int i = 0; i < lecturas.length; i++) {
+            suma += lecturas[i];
+        }
+        return suma / lecturas.length;
     }
 
     /** MODIFICA el arreglo recibido: multiplica cada lectura por factor. No devuelve nada. */
     public static void aplicarFactor(double[] lecturas, double factor) {
-        // TODO
+        
+        for (int i = 0; i < lecturas.length; i++) {
+            lecturas[i] *= factor;
+        }
     }
 
     /** NO modifica el original: devuelve un arreglo NUEVO con cada lectura * factor. */
     public static double[] copiaEscalada(double[] lecturas, double factor) {
-        // TODO
-        return null;
+        
+        double[] copia = new double[lecturas.length];
+        for (int i = 0; i < lecturas.length; i++) {
+            copia[i] = lecturas[i] * factor;
+        }
+        return copia;
     }
 
     /** Cuenta cuantas lecturas son ESTRICTAMENTE mayores que el umbral. */
     public static int contarSobreUmbral(double[] lecturas, double umbral) {
-        // TODO
-        return 0;
+        
+        int contador = 0;
+        for (int i = 0; i < lecturas.length; i++) {
+            if (lecturas[i] > umbral) {
+                contador++;
+            }
+        }
+        return contador;
     }
-
     // ===============================================================
     // NIVEL 3 - Sobrecarga (intermedio)
     // Mismo nombre "calcularCosto", distintos parametros.
