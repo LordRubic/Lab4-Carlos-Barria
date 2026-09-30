@@ -12,11 +12,11 @@ public class Calculos {
     // ---------------------------------------------------------------
     // CONSTANTES DE SU VERSION (ver tabla en el README) - cambienlas
     // ---------------------------------------------------------------
-    public static final double VOLTAJE_MIN = 0;   // TODO segun su version
-    public static final double VOLTAJE_MAX = 0;   // TODO segun su version
-    public static final double TARIFA_BASE = 0;   // TODO segun su version ($/kWh)
-    public static final double LIMITE_BAJO = 0;   // TODO segun su version (kWh)
-    public static final double LIMITE_MEDIO = 0;  // TODO segun su version (kWh)
+    public static final double VOLTAJE_MIN = 216;   // TODO segun su version
+    public static final double VOLTAJE_MAX = 264;   // TODO segun su version
+    public static final double TARIFA_BASE = 0.18;   // TODO segun su version ($/kWh)
+    public static final double LIMITE_BAJO = 150;   // TODO segun su version (kWh)
+    public static final double LIMITE_MEDIO = 400;  // TODO segun su version (kWh)
 
     // ===============================================================
     // NIVEL 1 - Declaracion y retorno (basico)
@@ -24,14 +24,13 @@ public class Calculos {
 
     /** Potencia en watts: P = V * I. */
     public static double calcularPotencia(double voltaje, double corriente) {
-        // TODO
-        return 0;
+        return voltaje * corriente;
     }
 
     /** true si VOLTAJE_MIN <= voltaje <= VOLTAJE_MAX (extremos incluidos). */
     public static boolean esVoltajeSeguro(double voltaje) {
-        // TODO
-        return false;
+
+        return voltaje >= VOLTAJE_MIN && voltaje <= VOLTAJE_MAX;
     }
 
     /**
@@ -41,7 +40,9 @@ public class Calculos {
      * (sin tildes). Este metodo no devuelve nada (void).
      */
     public static void imprimirEncabezado(String cliente) {
-        // TODO
+        
+        System.out.println("=== FACTURA DE ENERGIA ===");
+        System.out.println("Cliente: " + cliente);
     }
 
     /**
@@ -49,9 +50,16 @@ public class Calculos {
      * Ojo: todas las rutas deben terminar en un return.
      */
     public static String clasificarConsumo(double kwh) {
-        // TODO
-        return "";
+    
+        if (kwh < LIMITE_BAJO) {
+            return "BAJO";
+        } else if (kwh < LIMITE_MEDIO) {
+            return "MEDIO";
+        } else {
+            return "ALTO";
+        }
     }
+
 
     // ===============================================================
     // NIVEL 2 - Paso de parametros y arreglos (intermedio)
